@@ -1,0 +1,6 @@
+# This file is here for your own records and for future use if you add
+# a build tool (Vite/Next/etc). Plain static HTML/CSS/JS (and GitHub Pages)
+# cannot read .env files in the browser, so the page itself actually reads
+# the number from config.js instead. Keep both in sync.
+
+PHONE_NUMBER=6239401691
