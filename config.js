@@ -17,5 +17,5 @@
 
 const CONFIG = {
   PHONE_ENCODED: "MTk2MTA0OTMyNg==", // decode: base64 -> reverse the string
-  COUNTRY_CODE: "91" // change if the number isn't a US/Canada number
+  COUNTRY_CODE: "91" // 
 };
