@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Very Important Question 💗</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.35) 0 3px, transparent 4px),
+      radial-gradient(circle at 85% 70%, rgba(255,255,255,.3) 0 2px, transparent 3px),
+      linear-gradient(135deg, #f7c4d9, #eeb1cf);
+    overflow: hidden;
+  }
+
+  .card {
+    width: min(430px, 94vw);
+    background: rgba(255,255,255,.94);
+    border-radius: 30px;
+    padding: 24px 24px 30px;
+    text-align: center;
+    box-shadow: 0 18px 50px rgba(100, 40, 75, .22);
+    border: 1px solid rgba(255,255,255,.8);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(-.3deg); }
+    50% { transform: translateY(-6px) rotate(.3deg); }
+  }
+
+  .cat-box {
+    height: 245px;
+    border-radius: 22px;
+    background: #ead2bb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .cat {
+    font-size: 150px;
+    filter: drop-shadow(0 8px 5px rgba(80,50,30,.15));
+    transform: translateY(12px);
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(28px, 7vw, 39px);
+    line-height: 1.12;
+    color: #222;
+  }
+
+  .sub {
+    margin: 0 auto 23px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 330px;
+  }
+
+  .buttons {
+    position: relative;
+    min-height: 112px;
+  }
+
+  button {
+    border: 0;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 750;
+    padding: 14px 27px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #yes {
+    background: #e84d86;
+    color: white;
+    box-shadow: 0 7px 18px rgba(232,77,134,.3);
+    margin-bottom: 12px;
+  }
+
+  #yes:hover { transform: scale(1.05); }
+
+  #no {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 64px;
+  }
+
+  .result {
+    display: none;
+  }
+
+  .result h2 {
+    font-size: 35px;
+    margin: 5px 0 10px;
+  }
+
+  .result p {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+
+  .whatsapp {
+    display: inline-block;
+    text-decoration: none;
+    background: #25D366;
+    color: white;
+    font-weight: 800;
+    padding: 14px 24px;
+    border-radius: 999px;
+    box-shadow: 0 7px 18px rgba(37,211,102,.25);
+  }
+
+  .tiny {
+    margin-top: 14px;
+    color: #999;
+    font-size: 12px;
+  }
+
+  .heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: rise 4s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes rise {
+    to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<main class="card">
+  <section id="question">
+    <div class="cat-box">
+      <div class="cat">😽</div>
+    </div>
+
+    <h1>Will you go on a date with me? 💗</h1>
+    <p class="sub">
+      Or... do you love me? 👀<br>
+      <strong>Highkey asking for a friend</strong><br>
+      (it's me, I'm the friend) 😭👉👈
+    </p>
+
+    <div class="buttons">
+      <button id="yes">YES! FR FR 💅</button>
+      <button id="no">NAH ⚡</button>
+    </div>
+  </section>
+
+  <section id="result" class="result">
+    <div class="cat-box">
+      <div class="cat">😻</div>
+    </div>
+    <h2>I KNEW IT 😭❤️</h2>
+    <p>Okay, so... when are we going? 👀</p>
+    <a class="whatsapp" id="whatsapp" href="#" target="_blank" rel="noopener">
+      Tell me on WhatsApp 💬
+    </a>
+    <div class="tiny">No pressure. But also... excellent choice. 😌</div>
+  </section>
+</main>
+
+<script>
+  const phone = "916239401691";
+  const yes = document.getElementById("yes");
+  const no = document.getElementById("no");
+  const question = document.getElementById("question");
+  const result = document.getElementById("result");
+  const whatsapp = document.getElementById("whatsapp");
+
+  yes.addEventListener("click", () => {
+    question.style.display = "none";
+    result.style.display = "block";
+
+    const message =
+      "YES! FR FR 💅❤️ I saw your question... so when are you taking me on that date? 👀";
+    whatsapp.href =
+      "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+    for (let i = 0; i < 24; i++) {
+      setTimeout(() => {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.textContent = ["❤️","💕","💗","✨","💖"][Math.floor(Math.random()*5)];
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.animationDuration = (3 + Math.random()*2) + "s";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5500);
+      }, i * 70);
+    }
+  });
+
+  function moveNo() {
+    const area = document.querySelector(".buttons");
+    const maxX = Math.max(0, area.clientWidth - no.offsetWidth);
+    const maxY = 95;
+    no.style.left = Math.random() * maxX + "px";
+    no.style.top = Math.random() * maxY + "px";
+    no.style.transform = "none";
+  }
+
+  no.addEventListener("mouseenter", moveNo);
+  no.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveNo();
+  });
+  no.addEventListener("click", moveNo);
+</script>
+</body>
+</html>
